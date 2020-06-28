@@ -12,6 +12,27 @@ class App extends Component{
       { id: 4, value : 0 }
     ]
 };
+componentWillMount() {
+  console.log('Component WILL MOUNT!')
+}
+componentWillUpdate(nextProps, nextState) {
+  console.log('Component WILL UPDATE!');
+  console.log(nextProps, nextState);
+}
+componentDidUpdate(prevProps, prevState) {
+  console.log('Component DID UPDATE!')
+  console.log(prevProps, prevState);
+}
+ // this method called before render method invoked
+//  static getDerivedStateFromProps(props, state){
+//   console.log("App - GetDerivedStateFromProps - method Invoked");
+//   console.log(props, state);
+//   return null;
+//  }
+ componentDidMount(){
+   // get data from server and set the data to sate   
+   console.log("App - componentDidMount - Mounted");
+ }
 
 handleIncrement = counter => {
   const counters = [...this.state.counters];
