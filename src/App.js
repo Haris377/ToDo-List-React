@@ -13,22 +13,14 @@ class App extends Component{
     ]
 };
 
-constructor(){
-  super();
-  console.log("App-constructor");
-}
-
-componentDidMount(){
-  console.log('App - Mounted');
-}
-
 handleIncrement = counter => {
   const counters = [...this.state.counters];
   const index = counters.indexOf(counter);
-  counters[index] = {...counter};
-  counters[index].value++;
-  this.setState({ counters });
-};
+  counter[index] = { ...counter };
+  counter[index].value++;
+  this.setState({counters})
+  
+}
 
 handleReset = () => {
   const counters = this.state.counters.map(c => {
@@ -38,16 +30,14 @@ handleReset = () => {
   this.setState({ counters });
 };
 
-handleDelete = counterId => {
-  const counters = this.state.counters.filter(c => c.id !== counterId);
-  this.setState({ counters });    
-}; 
-
+  handleDelete = (counterId) => {
+    const counters = this.state.counters.filter(c => c.id !== counterId);
+    this.setState({ counters });    
+  }; 
   render() {
-    
     return(
       <React.Fragment>
-      <NavBar totalCounter={this.state.counters.filter(c => c.value > 0).length}/>
+      <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length}/>
       <main className="container">
         <Counters
         counters = {this.state.counters}
