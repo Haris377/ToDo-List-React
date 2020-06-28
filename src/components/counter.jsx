@@ -3,7 +3,7 @@ import React, { Component } from 'react';
  class Counter extends Component {
 
     render() { 
-        return (
+        return (   
         <div>
            <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
            <button 
@@ -17,10 +17,10 @@ import React, { Component } from 'react';
         </div>
         );
     }
-    renderTags(){
-        if(this.state.tags.length === 0) return <p>There is no tag!</p>;
-        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-    } 
+    // renderTags(){
+    //     if(this.state.tags.length === 0) return <p>There is no tag!</p>;
+    //     return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+    // } 
 
      getBadgeClasses() {
          let classes = "badge m-2 badge-";
@@ -29,8 +29,8 @@ import React, { Component } from 'react';
      }
 
     formatCount(){
-        const {count} = this.props.counter;
-        return count === 0 ? 'zero' : count;
+        const {value} = this.props.counter;
+        return value === 0 ? 'zero' : value;
     }
 }
  
